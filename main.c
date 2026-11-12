@@ -1,20 +1,26 @@
-//실습 3: 포인터와 함수
+//실습 4: 배열의 활용
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *x, int *y){  //x랑 y를 출력하려 할 때 매개변수에 포인터 변수를 넣음.
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
+int main(void)
+{
+    int i;
+    int grade[5];
+    int sum = 0;
 
-}
+    for (i=0;i<5;i++)
+    {
+        printf("input value[%i] = ", i);
+        scanf("%d", &grade[i]);
+    }
 
+    for (i=0;i<5;i++)
+    {
+        printf("grade[%i] = %i\n", i, *(grade+i));
+        sum += *(grade+i);
+    }
 
-void main(void){
-    int a = 3;
-    int b = 5;
-    swap(&a,&b);
+    printf("average : %i\n", sum/5);
 
-    printf("a: %i, b: %i\n", a,b);
+    return 0;
 }
