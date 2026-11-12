@@ -1,15 +1,20 @@
-//실습 2: 간접 참조 연산자
+//실습 3: 포인터와 함수
 #include <stdio.h>
-int main(void){
-    int i = 300;
-    
-    int *pi = &i;
-    char *pc = (char*)&i;
+#include <stdlib.h>
 
+void swap(int *x, int *y){  //x랑 y를 출력하려 할 때 매개변수에 포인터 변수를 넣음.
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
 
-    printf("%i, %i, %i\n", i, *pi, *pc);
-
-
-    return 0;
 }
-//결과: 300, 300, 44
+
+
+void main(void){
+    int a = 3;
+    int b = 5;
+    swap(&a,&b);
+
+    printf("a: %i, b: %i\n", a,b);
+}
